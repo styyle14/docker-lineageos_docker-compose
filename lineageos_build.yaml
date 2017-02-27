@@ -1,0 +1,19 @@
+version: '2'
+services:
+   lineageos:
+      build:
+         context: ./build/docker-lineageos
+         dockerfile: Dockerfile
+         args:
+            username: "sydent"
+      image: lineageos:latest
+      command: bash -c "./build.sh"
+      ports:
+         - "80:80"
+         - "443:443"
+      environment:
+         - ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
+      volumes:
+         - "./run/build.sh:/home/builder/build.sh"
+         - "./run/android/system:/home/builder/android/system"
+
