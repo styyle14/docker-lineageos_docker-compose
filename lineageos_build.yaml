@@ -1,6 +1,6 @@
 version: '2'
 services:
-   lineageos_setup:
+   lineageos_build:
       extends:
          file: ./lineageos.yaml
          service: lineageos
