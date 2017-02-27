@@ -1,12 +1,9 @@
 version: '2'
 services:
-   lineageos:
-      build:
-         context: ./build/docker-lineageos
-         dockerfile: Dockerfile
-         args:
-            username: "sydent"
-      image: lineageos:latest
+   lineageos_setup:
+      extends:
+         file: ./lineageos.yaml
+         service: lineageos
       command: bash -c "./build.sh"
       ports:
          - "80:80"
